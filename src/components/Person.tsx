@@ -13,7 +13,7 @@ export default function Person() {
 							whileInView={{ opacity: 1, x: 0 }}
 							initial={{ opacity: 0, x: -100 }}
 							transition={{ duration: 0.3 }}
-							className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl"
+							className="pb-16 text-5xl font-thin tracking-tight lg:mt-16 lg:text-8xl"
 						>
 							Daniil Matyash
 						</motion.h1>

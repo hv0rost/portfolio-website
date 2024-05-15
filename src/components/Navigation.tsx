@@ -8,7 +8,7 @@ export default function Navigation() {
 			<div className="flex flex-shrink-0  items-center">
 				<span
 					className="bg-gradient-to-r from-indigo-400 via-purple-300
-         to-pink-200 bg-clip-text text-3xl tracking-tight text-transparent"
+         to-pink-200 bg-clip-text tracking-tight text-transparent lg:text-3xl text-xl"
 				>
 					Personal portfolio
 				</span>
