@@ -1,14 +1,17 @@
+import { useSelector } from 'react-redux'
 import aboutImg from '../assets/aboutImg.jpg'
-import { ABOUT_TEXT } from '../assets/data/data'
 
 import { motion } from 'framer-motion'
+import { RootState } from '../store/store'
 
 export default function About() {
+	const store = useSelector((state: RootState) => state.languageSlice)
+
 	return (
 		<div className="pb-4">
 			<h2 className="mt-10  mb-5 text-center text-4xl">
-				About
-				<span className="text-purple-500"> Me</span>
+				{store.isRussian ? 'Обо' : 'About'}
+				<span className="text-purple-500"> {store.isRussian ? 'Мне' : 'Me'}</span>
 			</h2>
 			<div className="flex flex-wrap">
 				<motion.div
@@ -31,7 +34,7 @@ export default function About() {
 					className="w-full lg:w-1/2"
 				>
 					<div className="flex justify-center lg:justify-start">
-						<p className="my-2 max-w-xl py-6 text-lg">{ABOUT_TEXT}</p>
+						<p className="my-2 max-w-xl py-6 text-lg">{store.data.aboutText}</p>
 					</div>
 				</motion.div>
 			</div>

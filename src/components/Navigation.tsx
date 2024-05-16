@@ -2,10 +2,15 @@ import { FaTelegram, FaGithub } from 'react-icons/fa'
 import { IoLanguage } from 'react-icons/io5'
 
 import { motion } from 'framer-motion'
-// import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { actions } from '../store/slices/language.slice'
+import { RootState } from '../store/store'
 
 export default function Navigation() {
-	// const [isRus, setIsRus] = useState(false)
+	const store = useSelector((state: RootState) => state.languageSlice)
+
+	const dispatch = useDispatch()
+
 	return (
 		<nav className="mb-10 flex item-center justify-between py-6">
 			<div className="flex flex-shrink-0  items-center">
@@ -13,7 +18,7 @@ export default function Navigation() {
 					className="bg-gradient-to-r from-indigo-400 via-purple-300
          to-pink-200 bg-clip-text tracking-tight text-transparent lg:text-3xl hidden lg:block"
 				>
-					Personal portfolio
+					{store.isRussian ? 'Персональное портфолио' : 'Personal portfolio'}
 				</span>
 			</div>
 			<div className="m-8 flex items-center justify-center gap-4 text-3xl">
@@ -24,6 +29,7 @@ export default function Navigation() {
 						borderRadius: '100%',
 					}}
 					className="cursor-pointer"
+					onClick={() => dispatch(actions.toggleLanguage())}
 				>
 					<IoLanguage />
 				</motion.div>

@@ -1,13 +1,17 @@
-import { EXPERIENCES } from '../assets/data/data'
-
 import { motion } from 'framer-motion'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store/store'
 
 export default function Experience() {
+	const store = useSelector((state: RootState) => state.languageSlice)
+
 	return (
 		<div className="pb-4">
-			<h2 className="mt-10 mb-5 text-center text-4xl">Experience</h2>
+			<h2 className="mt-10 mb-5 text-center text-4xl">
+				{store.isRussian ? 'Опыт работы' : 'Experience'}
+			</h2>
 			<div>
-				{EXPERIENCES.map((item, index) => (
+				{store.data.experience.map((item, index) => (
 					<div key={index} className="mb-8 flex flex-wrap lg:justify-center">
 						<motion.div
 							whileInView={{ opacity: 1, x: 0 }}
@@ -28,7 +32,7 @@ export default function Experience() {
 								<span className="text-sm text-purple-100">{item.company}</span>
 							</h6>
 							<p className="mb-4 text-neutral-400">{item.description}</p>
-							<div className='flex flex-wrap'>
+							<div className="flex flex-wrap">
 								{item.technologies.map((tech, index) => (
 									<span
 										key={index}

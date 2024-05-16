@@ -6,6 +6,8 @@ import { FaNodeJs } from 'react-icons/fa'
 import { FaRust } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import { Variants, motion } from 'framer-motion'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store/store'
 
 function iconAnimation(duration: number): Variants {
 	return {
@@ -23,9 +25,14 @@ function iconAnimation(duration: number): Variants {
 }
 
 export default function MainTechnologies() {
+	const store = useSelector((state: RootState) => state.languageSlice)
+
 	return (
 		<div className="pb-24">
-			<h2 className="my-20 text-center text-4xl">Main Technologies</h2>
+			<h2 className="my-20 text-center text-4xl"> 
+			{store.isRussian ? 'Мои основные технологии' : 'Main Technologies'}
+			
+			</h2>
 			<motion.div
 				whileInView={{ opacity: 1, x: 0 }}
 				initial={{ opacity: 0, x: -100 }}
