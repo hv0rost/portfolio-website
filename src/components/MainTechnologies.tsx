@@ -1,7 +1,7 @@
 import { RiVuejsLine } from 'react-icons/ri'
 import { SiQuasar } from 'react-icons/si'
 import { RiReactjsLine } from 'react-icons/ri'
-import { SiTypescript } from 'react-icons/si'
+import { BiLogoTypescript } from 'react-icons/bi'
 import { FaNodeJs } from 'react-icons/fa'
 import { FaRust } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
@@ -65,7 +65,7 @@ export default function MainTechnologies() {
 					initial="initial"
 					animate="animate"
 				>
-					<SiTypescript className="text-7xl text-blue-500" />
+					<BiLogoTypescript className="text-7xl text-blue-500" />
 				</motion.div>
 				<motion.div
 					variants={iconAnimation(1.2)}
